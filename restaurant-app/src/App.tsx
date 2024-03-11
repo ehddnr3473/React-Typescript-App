@@ -3,9 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 import Store from './Store';
 import { Address, Restaurant } from './model/restaurant';
+import BestMenu from './BestMenu';
 
 let data: Restaurant = {
-  name: "yeolmok", 
+  name: "yeolmokRestaurant", 
   category: "", 
   address: {
     city: "seoul",
@@ -22,9 +23,14 @@ const App:React.FC = () => {
     setRestaurent({...restaurant, address: address});
   }
 
+  const showBestMenu = (name: string) => {
+    console.log(name);
+  }
+
   return (
     <div className="App">
       <Store info={restaurant} changeAddress={changeAddress}/>
+      <BestMenu name="ramen" category="noodle" showBestMenu={showBestMenu}/>
     </div>
   );
 }
